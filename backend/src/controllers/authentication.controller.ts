@@ -7,7 +7,7 @@ import usersRepository from "../repositories/users.repository";
 class AuthenticationController {
   async authenticate(request: Request, response: Response) {
     const { email, password } = request.body;
-
+    console.log("Dsda")
     const user: IUser = await usersRepository.findByEmail(email);
 
     if (!user)
