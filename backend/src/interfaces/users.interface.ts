@@ -1,4 +1,10 @@
-export interface IUser {
+interface IStoreUser {
+  name: string;
+  email: string;
+  password: string;
+}
+
+interface IUser {
   id: number;
   name: string;
   email: string;
