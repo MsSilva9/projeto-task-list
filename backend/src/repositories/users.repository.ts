@@ -1,11 +1,5 @@
 import connection from "../database/connection";
 
-interface IStoreUser {
-  name: string;
-  email: string;
-  password: string;
-}
-
 class UsersRepository {
   async store(userData: IStoreUser) {
     try {
