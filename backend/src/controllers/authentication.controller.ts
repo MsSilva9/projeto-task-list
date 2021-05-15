@@ -2,8 +2,6 @@ import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-import { IUser } from "../interfaces/users.interface";
-
 import usersRepository from "../repositories/users.repository";
 
 class AuthenticationController {

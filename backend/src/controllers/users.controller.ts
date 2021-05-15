@@ -1,11 +1,28 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 
-import { IUser } from "../interfaces/users.interface";
-
 import usersRepository from "../repositories/users.repository";
 
 class UsersController {
+  async show(request: Request, response: Response) {
+    const { id } = request.params;
+
+    try {
+      const parsedId = Number(id);
+
+      const user = await usersRepository.findById(parsedId);
+
+      if (!user)
+        return response.status(401).json({ message: "User not found" });
+
+      delete user.password;
+
+      return response.json(user);
+    } catch (error) {
+      return response.status(500).json({ message: error.message });
+    }
+  }
+
   async store(request: Request, response: Response) {
     const { name, email, password } = request.body;
 

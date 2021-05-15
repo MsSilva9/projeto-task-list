@@ -15,7 +15,7 @@ export async function up(knex: Knex): Promise<void> {
       .onDelete("cascade");
 
     table.string("title").notNullable();
-    table.text("description").notNullable().unique();
+    table.text("description");
 
     table.date("delivery_date").notNullable();
     table.date("completed_date");
